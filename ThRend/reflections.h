@@ -97,6 +97,7 @@ Result followSpecularPath(float* tsky, glm::vec3 &reflDir, glm::vec3 &hitPoint, 
 		rayCon *= (1.0 - emis);
 	}
 	//si hay un sobrante, se lo asigno todo a la ultima temperatura
+	//如果有多余的，我会把它放在最后一个温度。
 	if (rayCon > 0)
 		flux += rayCon*power4(t);
 
@@ -104,7 +105,7 @@ Result followSpecularPath(float* tsky, glm::vec3 &reflDir, glm::vec3 &hitPoint, 
 	return r;
 }
 
-
+/*
 Result followSpecularPath2(float* tsky, glm::vec3 reflDir, glm::vec3 hitPoint, float globalID){
 	Result r;
 
@@ -150,6 +151,7 @@ Result followSpecularPath2(float* tsky, glm::vec3 reflDir, glm::vec3 hitPoint, f
 	r.val = power4(t);;
 	return r;
 }
+*/
 
 // Implemented by jpaguerre based on eduardof MATLAB version of:
 // [Walter et al] "Microfacet Models for Refraction through Rough Surfaces"
@@ -161,7 +163,8 @@ inline float G1vmGGX(vec3 wo, vec3 nn, vec3 mm, float thetaV, float alphaG){
 	return G1om;
 }
 
-
+// alphaG : roughness
+// rotationAngle : float rotationAngle = (2*M_PI / (AA*AA))*idAA;
 vec3 specLobeMicrofacetGGX(ONB baseNorm, vec3 wi, float e1, float e2, float alphaG, float &weight, float rotationAngle){
 	//eqs. 35, 36
 	vec3 nn(0., 0., 1.);
@@ -174,7 +177,7 @@ vec3 specLobeMicrofacetGGX(ONB baseNorm, vec3 wi, float e1, float e2, float alph
 	//rotate around Z axis when AA is ON. If AA is off, rotationAngle=0
 	float rotated_x = x*cos(rotationAngle) - y*sin(rotationAngle);
 	float rotated_y = x*sin(rotationAngle) + y*cos(rotationAngle);
-	//
+	//local space all directions vector
 	vec3 mm(rotated_x, rotated_y, z); mm = normalize(mm);
 
 	wi = baseNorm.WorldToLocal(wi);	wi = normalize(wi);
@@ -247,6 +250,7 @@ float getGlossyReflectedFlux(float refl,float* tsky, vec3 orig, vec3 originalDir
 	return reflFlux;
 }
 
+/*
 float getDiffuselyReflectedTemperature(float* tsky, glm::vec3 orig, ONB base, float rings, float Drho, int nRaysDiffuse){
 	float tilespering = 1;
 	float reflT = 0;
@@ -308,7 +312,7 @@ float getDiffuselyReflectedTemperature(float* tsky, glm::vec3 orig, ONB base, fl
 	}
 	return reflT / nRaysDiffuse;
 }
-
+*/
 
 #endif
 

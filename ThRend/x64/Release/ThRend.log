@@ -16,22 +16,11 @@ D:\G_treasures\CSLAB\OtherWork\infrared\github\ThRend\ThRend\reflections.h(85,16
 D:\G_treasures\CSLAB\OtherWork\infrared\github\ThRend\ThRend\reflections.h(87,16): warning C4244:  “初始化”: 从“float”转换到“int”，可能丢失数据
 D:\G_treasures\CSLAB\OtherWork\infrared\github\ThRend\ThRend\reflections.h(88,16): warning C4244:  “初始化”: 从“float”转换到“int”，可能丢失数据
 D:\G_treasures\CSLAB\OtherWork\infrared\github\ThRend\ThRend\reflections.h(97,25): warning C4244:  “*=”: 从“double”转换到“float”，可能丢失数据
-D:\G_treasures\CSLAB\OtherWork\infrared\github\ThRend\ThRend\reflections.h(115,14): warning C4244:  “=”: 从“float”转换到“unsigned int”，可能丢失数据
-D:\G_treasures\CSLAB\OtherWork\infrared\github\ThRend\ThRend\reflections.h(139,15): warning C4244:  “初始化”: 从“double”转换到“float”，可能丢失数据
-D:\G_treasures\CSLAB\OtherWork\infrared\github\ThRend\ThRend\reflections.h(141,15): warning C4244:  “初始化”: 从“float”转换到“int”，可能丢失数据
-D:\G_treasures\CSLAB\OtherWork\infrared\github\ThRend\ThRend\reflections.h(142,15): warning C4244:  “初始化”: 从“float”转换到“int”，可能丢失数据
-D:\G_treasures\CSLAB\OtherWork\infrared\github\ThRend\ThRend\reflections.h(159,14): warning C4244:  “初始化”: 从“double”转换到“float”，可能丢失数据
-D:\G_treasures\CSLAB\OtherWork\infrared\github\ThRend\ThRend\reflections.h(160,13): warning C4244:  “初始化”: 从“double”转换到“float”，可能丢失数据
-D:\G_treasures\CSLAB\OtherWork\infrared\github\ThRend\ThRend\reflections.h(169,13): warning C4244:  “初始化”: 从“double”转换到“float”，可能丢失数据
-D:\G_treasures\CSLAB\OtherWork\infrared\github\ThRend\ThRend\reflections.h(203,21): warning C4244:  “return”: 从“double”转换到“float”，可能丢失数据
-D:\G_treasures\CSLAB\OtherWork\infrared\github\ThRend\ThRend\reflections.h(216,13): warning C4244:  “初始化”: 从“double”转换到“int”，可能丢失数据
-D:\G_treasures\CSLAB\OtherWork\infrared\github\ThRend\ThRend\reflections.h(255,16): warning C4244:  “初始化”: 从“double”转换到“float”，可能丢失数据
-D:\G_treasures\CSLAB\OtherWork\infrared\github\ThRend\ThRend\reflections.h(256,13): warning C4244:  “初始化”: 从“double”转换到“float”，可能丢失数据
-D:\G_treasures\CSLAB\OtherWork\infrared\github\ThRend\ThRend\reflections.h(258,16): warning C4244:  “初始化”: 从“double”转换到“float”，可能丢失数据
-D:\G_treasures\CSLAB\OtherWork\infrared\github\ThRend\ThRend\reflections.h(261,12): warning C4244:  “初始化”: 从“double”转换到“float”，可能丢失数据
-D:\G_treasures\CSLAB\OtherWork\infrared\github\ThRend\ThRend\reflections.h(295,17): warning C4244:  “初始化”: 从“double”转换到“float”，可能丢失数据
-D:\G_treasures\CSLAB\OtherWork\infrared\github\ThRend\ThRend\reflections.h(297,17): warning C4244:  “初始化”: 从“float”转换到“int”，可能丢失数据
-D:\G_treasures\CSLAB\OtherWork\infrared\github\ThRend\ThRend\reflections.h(298,17): warning C4244:  “初始化”: 从“float”转换到“int”，可能丢失数据
+D:\G_treasures\CSLAB\OtherWork\infrared\github\ThRend\ThRend\reflections.h(161,14): warning C4244:  “初始化”: 从“double”转换到“float”，可能丢失数据
+D:\G_treasures\CSLAB\OtherWork\infrared\github\ThRend\ThRend\reflections.h(162,13): warning C4244:  “初始化”: 从“double”转换到“float”，可能丢失数据
+D:\G_treasures\CSLAB\OtherWork\infrared\github\ThRend\ThRend\reflections.h(172,13): warning C4244:  “初始化”: 从“double”转换到“float”，可能丢失数据
+D:\G_treasures\CSLAB\OtherWork\infrared\github\ThRend\ThRend\reflections.h(206,21): warning C4244:  “return”: 从“double”转换到“float”，可能丢失数据
+D:\G_treasures\CSLAB\OtherWork\infrared\github\ThRend\ThRend\reflections.h(219,13): warning C4244:  “初始化”: 从“double”转换到“int”，可能丢失数据
 D:\G_treasures\CSLAB\OtherWork\infrared\github\ThRend\ThRend\main.cpp(55,36): warning C4305:  “初始化”: 从“double”到“float”截断
 D:\G_treasures\CSLAB\OtherWork\infrared\github\ThRend\ThRend\main.cpp(61,25): warning C4273:  “omp_get_thread_num”: dll 链接不一致
 D:\E_matsui\vs2019\VC\Tools\MSVC\14.22.27905\include\omp.h(56,1): message :  参见“omp_get_thread_num”的前一个定义
@@ -49,12 +38,11 @@ D:\G_treasures\CSLAB\OtherWork\infrared\github\ThRend\ThRend\main.cpp(164,27): w
 D:\G_treasures\CSLAB\OtherWork\infrared\github\ThRend\ThRend\main.cpp(220,20): warning C4244:  “初始化”: 从“double”转换到“float”，可能丢失数据
 D:\G_treasures\CSLAB\OtherWork\infrared\github\ThRend\ThRend\main.cpp(228,17): warning C4244:  “初始化”: 从“float”转换到“int”，可能丢失数据
 D:\G_treasures\CSLAB\OtherWork\infrared\github\ThRend\ThRend\main.cpp(229,17): warning C4244:  “初始化”: 从“float”转换到“int”，可能丢失数据
-D:\G_treasures\CSLAB\OtherWork\infrared\github\ThRend\ThRend\main.cpp(238,29): warning C4244:  “=”: 从“double”转换到“float”，可能丢失数据
 D:\G_treasures\CSLAB\OtherWork\infrared\github\ThRend\ThRend\main.cpp(242,20): warning C4244:  “=”: 从“double”转换到“float”，可能丢失数据
 D:\G_treasures\CSLAB\OtherWork\infrared\github\ThRend\ThRend\main.cpp(245,22): warning C4244:  “=”: 从“double”转换到“float”，可能丢失数据
   正在生成代码
-  0 of 438 functions ( 0.0%) were compiled, the rest were copied from previous compilation.
+  3 of 439 functions ( 0.7%) were compiled, the rest were copied from previous compilation.
     0 functions were new in current compilation
-    0 functions had inline decision re-evaluated but remain unchanged
+    15 functions had inline decision re-evaluated but remain unchanged
   已完成代码的生成
   ThRend.vcxproj -> D:\G_treasures\CSLAB\OtherWork\infrared\github\ThRend\x64\Release\ThRend.exe

@@ -119,8 +119,8 @@ void generateThermography(float*tsky, std::vector<int> &matIDs, settings &s, mat
 	RGBQUAD *emisColors = (RGBQUAD*)malloc(width*height*sizeof(RGBQUAD));
 	float *tempData = (float*)malloc(width*height*sizeof(float));
 
-	int countMAL = 0;
-	int countBIEN = 0;
+	int countMAL = 0; // mystery 
+	int countBIEN = 0; // mystery 
 	totalProcessed = 0;
 
 	//Beckers subdivision for the case of diffuse reflection
@@ -189,9 +189,9 @@ void generateThermography(float*tsky, std::vector<int> &matIDs, settings &s, mat
 					float t = 0;
 					float aparentT = 0;
 					if (query.hit.geomID != RTC_INVALID_GEOMETRY_ID) {
-						int globalID = query.hit.primID;
+						int globalID = query.hit.primID; // for getting a matID index.
 						if (query.hit.geomID == quadID)
-							globalID += triOffset;
+							globalID += triOffset; // calculate the correct matID index.
 							
 						glm::vec3 apColor(0.0f, 0.0f, 0.0f);
 						glm::vec3 reColor(0.0f, 0.0f, 0.0f);
@@ -208,16 +208,16 @@ void generateThermography(float*tsky, std::vector<int> &matIDs, settings &s, mat
 
 						glm::vec3 originalDir = glm::vec3(query.ray.dir_x, query.ray.dir_y, query.ray.dir_z);
 						glm::vec3 hitNormal = glm::normalize(glm::vec3(query.hit.Ng_x, query.hit.Ng_y, query.hit.Ng_z));
-						dir = 2.0f * glm::dot(hitNormal, -originalDir) * hitNormal + originalDir;
+						dir = 2.0f * glm::dot(hitNormal, -originalDir) * hitNormal + originalDir; // ? useless
 						glm::vec3 orig = glm::vec3(query.ray.org_x, query.ray.org_y, query.ray.org_z) + query.ray.tfar * originalDir + hitNormal*EPS;
 
-						float * emiT = matProps[matIDs[globalID]].emisTable;
+						float * emiT = matProps[matIDs[globalID]].emisTable; // get mat params by geomID + primID.
 						float specN = matProps[matIDs[globalID]].roughness;
 
 						ONB base(hitNormal);
 						glm::vec3 dirLocal = base.WorldToLocal(-originalDir);
 						dirLocal = glm::normalize(dirLocal);
-						float angulo = (asin(dirLocal.z) * 180 / M_PI);
+						float angulo = (asin(dirLocal.z) * 180 / M_PI); // incident angle [0,90].
 
 						if (angulo < 0){
 							apColor = colormap[getColor(t)];
@@ -228,27 +228,27 @@ void generateThermography(float*tsky, std::vector<int> &matIDs, settings &s, mat
 							int ang1 = floor(angulo);
 							int ang2 = ceil(angulo);
 							float coef = angulo - ang1;
-							float emis = (1 - coef)*emiT[ang1] + coef*emiT[ang2];
+							float emis = (1 - coef)*emiT[ang1] + coef*emiT[ang2]; // emis interpolates between ang1 and ang2.
 							float refl = 1 - emis;
 							float directFlux = pow(t, 4);
 							float reflectedFlux; 
 
 							if (specN == -1){//DIFFUSE REFLECTION
-								reflT = getDiffuselyReflectedTemperature(tsky, orig, base, rings, Drho, nRaysDiffuse);
-								reflectedFlux = refl*pow(reflT, 4.0);
+								//reflT = getDiffuselyReflectedTemperature(tsky, orig, base, rings, Drho, nRaysDiffuse);
+								//reflectedFlux = refl * pow(reflT, 4.0); // why to multiply refl, is it right?
 							}
 							else{           //GLOSSY REFLECTION
 								reflectedFlux = getGlossyReflectedFlux(refl, tsky, orig, originalDir, hitNormal, angulo, specN, reflTAnt, matIDs, matProps, rotationAngle);
 								reflT = pow(reflectedFlux, 1.0 / 4.0);
 							}
 							
-							aparentT = pow(emis*directFlux + refl*reflectedFlux, 1.0 / 4.0);
+							aparentT = pow(emis * directFlux + refl * reflectedFlux, 1.0 / 4.0);
 							apColor = colormap[getColor(aparentT)];
 							refColor = colormap[getColor2(reflT)];
 							countBIEN++;
 
 							tempAA[omp_get_thread_num()*AA*AA + iAA*AA + jAA] = aparentT;
-							emisAA[omp_get_thread_num()*AA*AA+iAA*AA + jAA].r = (int)(emis * 255);
+							emisAA[omp_get_thread_num()*AA*AA + iAA*AA + jAA].r = (int)(emis * 255);
 							emisAA[omp_get_thread_num()*AA*AA + iAA*AA + jAA].g = (int)(emis * 255);
 							emisAA[omp_get_thread_num()*AA*AA + iAA*AA + jAA].b = (int)(emis * 255);
 						}
@@ -384,8 +384,10 @@ int main(){
 
 	loadColormapFromFile(("..\\" + s.colormapFile));
 	float* tsky = loadSkyTemp(("..\\" + s.skyTempsFile));
-	tmin = s.tmin; tmax = s.tmax;
-	tmin_reflected = s.tmin_reflected; tmax_reflected = s.tmax_reflected;
+	tmin = s.tmin; 
+	tmax = s.tmax;
+	tmin_reflected = s.tmin_reflected; 
+	tmax_reflected = s.tmax_reflected;
 
 	NRAYS_GLOSSY = s.reflSamples;
 	MAX_BOUNCES = s.MAX_BOUNCES;

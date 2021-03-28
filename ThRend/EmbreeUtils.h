@@ -13,7 +13,7 @@
 
 const float EPS = 1e-4f;
 
-int triOffset = 0;
+int triOffset = 0; // for calculating a correct matID index.
 unsigned int triID;
 unsigned int quadID;
 RTCScene eScene;
@@ -84,8 +84,8 @@ RTCScene buildSceneEmbree(std::vector<glm::vec3> &sc_vertices,
 		rtcSetSharedGeometryBuffer(triGeom, RTC_BUFFER_TYPE_VERTEX_ATTRIBUTE, 0, RTC_FORMAT_FLOAT, temps.data(), 0, sizeof(float), temps.size());
 
 		rtcCommitGeometry(triGeom);
-		triID = rtcAttachGeometry(eScene, triGeom);
-		triOffset = sc_triangles.size() / 3;
+		triID = rtcAttachGeometry(eScene, triGeom); // return geomID.
+		triOffset = sc_triangles.size() / 3; // offset for seaking a correct matID index.
 	}
 	if (sc_quads.size() > 0) {
 		RTCGeometry quadGeom =
@@ -107,7 +107,7 @@ RTCScene buildSceneEmbree(std::vector<glm::vec3> &sc_vertices,
 		rtcSetSharedGeometryBuffer(quadGeom, RTC_BUFFER_TYPE_VERTEX_ATTRIBUTE, 0, RTC_FORMAT_FLOAT, temps.data(), 0, sizeof(float), temps.size());
 
 		rtcCommitGeometry(quadGeom);
-		quadID = rtcAttachGeometry(eScene, quadGeom);
+		quadID = rtcAttachGeometry(eScene, quadGeom); // return geomID.
 	}
 
 	rtcCommitScene(eScene);
