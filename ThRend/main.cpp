@@ -48,6 +48,7 @@
 #include "EmbreeUtils.h"
 #include "settingsLoader.h"
 #include "materialLoader.h"
+#include "furnaceTestLoader.h"
 
 #include <fstream>
 #include <iostream>
@@ -394,6 +395,8 @@ int main(){
 
 	material* matProps = loadMaterials("..\\materials");
 	//printMaterials(matProps);
+
+	loadFurnaceTestFs("..\\whiteFurnace.txt");
 
 	generateThermography(tsky, matIDs, s,matProps);
 	int i;

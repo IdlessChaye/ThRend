@@ -153,6 +153,7 @@
     <ClInclude Include="colormap.h" />
     <ClInclude Include="EmbreeUtils.h" />
     <ClInclude Include="FreeImage.h" />
+    <ClInclude Include="furnaceTestLoader.h" />
     <ClInclude Include="materialLoader.h" />
     <ClInclude Include="ONB.h" />
     <ClInclude Include="reflections.h" />

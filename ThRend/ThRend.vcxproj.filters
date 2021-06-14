@@ -44,5 +44,8 @@
     <ClInclude Include="reflections.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="furnaceTestLoader.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
