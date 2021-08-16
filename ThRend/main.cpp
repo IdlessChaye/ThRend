@@ -246,6 +246,7 @@ void generateThermography(float*tsky, std::vector<int> &matIDs, settings &s, mat
 							aparentT = pow(emis * directFlux + refl * reflectedFlux, 1.0 / 4.0);
 							apColor = colormap[getColor(aparentT)];
 							refColor = colormap[getColor2(reflT)];
+							//refColor = getValue(reflT);
 							countBIEN++;
 
 							tempAA[omp_get_thread_num()*AA*AA + iAA*AA + jAA] = aparentT;
@@ -329,8 +330,10 @@ void generateThermography(float*tsky, std::vector<int> &matIDs, settings &s, mat
 			emisColors[i*height + j].rgbBlue =  (BYTE) (emis.b / (AA*AA));
 
 			tempData[i*height + j] = temp / (AA*AA);
-		}
+
+		}	
 	}
+	
 
 	saveData(tempData, width, height);
 	//SAVE IMAGE

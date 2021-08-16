@@ -16,6 +16,8 @@ fovVertical 24
 # resolution of the image 
 imageWidth 180
 imageHeight 250
+#imageWidth 402
+#imageHeight 536
 
 # Primary rays per pixel (for antialiasing)
 aa 16

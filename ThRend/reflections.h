@@ -192,9 +192,9 @@ vec3 specLobeMicrofacetGGX(ONB baseNorm, vec3 wi, float e1, float e2, float alph
 		float Giom = G1im*G1om;
 		weight = abs(dot(wi, mm))*Giom / (abs(dot(wi, nn))*abs(dot(mm, nn)));
 		//furnace test
-		float winn = dot(wi, nn), wonn = dot(wo,nn);
-		float furnace_weight = (1 - getFurnaceTestF(winn, alphaG)) * (1 - getFurnaceTestF(wonn, alphaG)) / M_PI / (1 - getFurnaceTestFavg(alphaG));
-		weight += furnace_weight;
+		//float winn = dot(wi, nn), wonn = dot(wo,nn);
+		//float furnace_weight = (1 - getFurnaceTestF(winn, alphaG)) * (1 - getFurnaceTestF(wonn, alphaG)) / M_PI / (1 - getFurnaceTestFavg(alphaG));
+		//weight += furnace_weight;
 		wo = baseNorm.LocalToWorld(wo); wo = normalize(wo);
 		return wo;
 	}

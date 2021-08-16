@@ -64,5 +64,22 @@ int getColor2(float t){
 	return ind;
 }
 
+int maxttt = 0;
+int max(int a, int b)
+{
+	return a > b ? a : b;
+}
+
+vec3 getValue(float t)
+{
+	float tt = (t - 273.15);
+	float minTemp = -10;
+	float maxTemp = 30;
+	float maxtt = 50;
+	maxttt = max(maxttt, tt);
+	float value = tt / maxtt;
+	return vec3(value, value, value);
+}
+
 #endif
 
